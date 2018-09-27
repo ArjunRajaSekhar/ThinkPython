@@ -5,10 +5,6 @@ from analyze_book import *
 
 
 def subtract(d1, d2):
-    """Returns a set of all keys that appear in d1 but not d2.
-
-    d1, d2: dictionaries
-    """
     return set(d1) - set(d2)
 
 
