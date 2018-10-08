@@ -1,0 +1,70 @@
+ Using VPython with installed Python
+
+We recommend installing the Anaconda Python distribution with Python version 3.5.3 or later.
+The 3D animations use WebGL in a browser, which is not supported by Internet Explorer.
+All current browsers do support WebGL. See webglreport.com to check this.
+
+The vpython module ("VPython 7") is available using
+     "conda install -c vpython vpython" or "pip install vpython".
+
+To update to later versions use
+     "conda update -c vpython vpython" or "pip install vpython --upgrade".
+Using the vpython module outside a Jupyter notebook (Python 3.5.3 or later)
+Read less
+You can launch a VPython program from applications such as IDLE, Spyder, or a terminal if the version of Python is 3.5.3 or greater.
+
+This short program will display a white box on a black background:
+    from vpython import *
+    box()
+
+Either with or without a Jupyter notebook, "from vpython import *" also imports all math functions, clock(), random(), and arange(). This simplifies moving programs between GlowScript VPython and VPython 7.
+
+The newest Spyder 3.2 does not support the use of the vpython module. A simple option is to install the older Spyder 3.1.4 by executing "conda install spyder=3.1.4". You can start Spyder by clicking the Spyder icon that is installed with Anaconda, or you can start Spyder from a command prompt by typing "spyder". In Spyder you must go to Run > Configure and specify "Execute in a new dedicated Python console".
+
+Some Mac users have reported that running from Spyder doesn't work. The following workaround, making and invoking a new environment, does work: "conda create -n vpclean -c vpython vpython python=3" followed by "source activate vpclean".
+
+There is a suite of demo programs for use without a Jupyter notebook (zip file).
+
+
+
+
+Using the vpython module in a Jupyter notebook (Python 2.7, and 3.4 or greater)
+Read less
+
+VPython does not yet work in Jupyter Lab, though some work has been done to make this possible.
+
+There are two ways to start a Jupyter notebook. In a terminal, execute "jupyter notebook". Or (depending on what operating system you're using), doubleclick the icon "Jupyter Notebook" that is shown as one of the Anaconda-related tools. At the right there is a pulldown menu to create a New notebook, and if you choose "VPython" you will get the following import, which if using Python 3 is unnecessary (you can change the notebook type through the menu Kernel > Change kernel):
+    from __future__ import division, print_function
+
+If you have a recent release of the Mac operating system, to start the Jupyter notebook you may need to execute this:
+    jupyter notebook --browser=Chrome
+
+This short program will display a white box on a black background:
+    from vpython import *
+    box()
+
+Either with or without a Jupyter notebook, "from vpython import *" also imports all math functions, clock(), random(), and arange(). This simplifies moving programs between GlowScript VPython and VPython 7.
+
+Click in the first cell (containing the vpython import statement), then click the run icon, the one that is a rightward-facing triangle touching a vertical line. Currently, to re-run a VPython program you need to click the circular arrow icon to "restart the kernel" and then click the red-highlighted button, then click in the first cell, then click the run icon. Some users find it convenient to include in the first cell just these statements:
+
+    from vpython import*
+    scene = canvas()
+
+Then put the rest of the program in later cells. The result is that the 3D display will be shown just under the first cell instead of at the end of the last cell. It also ensures that the vpython module has been fully initialized before continuing. Moreover, you can re-run the program more easily.
+
+There is a suite of demo programs for use with a Jupyter notebook (zip file).
+
+There is a Binder package of some demo programs, which lets you run Jupyter VPython programs even on computers or mobile devices that do not have Python installed. Here is an explanation of the Binder mechanism. Because the Binder servers are shared among a large number of people, performance can vary a great deal from day to day and from hour to hour.
+
+    
+
+
+
+
+
+
+
+VPython 6, which is no longer supported
+Read less
+
+Here is documentation on the older VPython 6 (the "visual" module), which as of January 2016 is still available but no longer supported. The main differences are that vectors must now be represented as vector(x,y,z) or vec(x,y,z), not as (x,y,z), the name "display" has been changed to "canvas", the name "gdisplay" has been changed to "graph", and the curve and points objects have a new set of methods. This Python program does an imperfect but useful job of converting old programs to the new syntax.
